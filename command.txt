@@ -19,3 +19,7 @@ database.default.DBDriver = SQLite3
 
 # php spark make:model Lamp --suffix
 # php spark make:model history --suffix
+
+Tanpa belakang LampModel
+# php spark make:model Lamp
+# php spark make:model history
