@@ -127,3 +127,4 @@ _modules/*
 /.phpunit.*.cache
 
 composer.lock
+writable/database.db

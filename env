@@ -30,6 +30,10 @@
 # DATABASE
 #--------------------------------------------------------------------
 
+# setting env / location db writeable/database.db
+database.default.database = "database.db"
+database.default.DBDriver = SQLite3
+
 # database.default.hostname = localhost
 # database.default.database = ci4
 # database.default.username = root
