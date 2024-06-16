@@ -8,3 +8,5 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'LampController::index');
 $routes->get('/lamps/(:any)', 'LampController::updateLamp/$1');
 $routes->post('/lamps/(:any)', 'LampController::updateLamp/$1');
+
+$routes->get('/histories', 'HistoryController::index');
