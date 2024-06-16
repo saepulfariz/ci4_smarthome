@@ -21,8 +21,9 @@ class Histories extends Migration
                 'unsigned'       => true,
             ],
             'status' => [
-                'type'       => 'INT',
-                'default' => 0
+                'type'           => 'ENUM',
+                'constraint'     => ['ON', 'OFF'],
+                'default'        => 'OFF',
             ],
             'created_at' => [
                 'type'           => 'DATETIME',

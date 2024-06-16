@@ -13,7 +13,7 @@
                         <img src="<?= base_url(); ?><?= ($lamp['status'] == 1 ? 'images/on.png' : 'images/off.png'); ?>" class="mt-3" width="80" id="lamp-<?= $lamp['id']; ?>">
                         <div class="mt-4">
                             <div class="form-check form-switch">
-                                <input class="form-check-input status-<?= $lamp['id']; ?>" type="checkbox" role="switch" id="<?= $lamp['id']; ?>" <?= ($lamp['status'] == 1 ? 'checked' : 'bg-danger'); ?>>
+                                <input onclick="updateLamp(this)" class="form-check-input status-<?= $lamp['id']; ?>" type="checkbox" role="switch" id="<?= $lamp['id']; ?>" <?= ($lamp['status'] == 1 ? 'checked' : 'bg-danger'); ?>>
                                 <label class="form-check-label ms-3 mt-1" for="<?= $lamp['id']; ?>">
                                     <h4>
                                         <span class="@if ($lamp->status == 1) text-success @else text-danger @endif" id="lampStatus-<?= $lamp['id']; ?>">
@@ -37,5 +37,56 @@
     </div>
 </div>
 <script>
+    function updateLamp(payload) {
+
+        //define token
+        let token = $("meta[name='csrf-token']").attr("content");
+
+        //show loading
+        $(`#loader-${payload.id}`).removeClass('d-none');
+        $.ajax({
+            type: "POST",
+            dataType: 'json', // json
+            url: `/lamps/${payload.id}`,
+            data: {
+                // "_token": token,
+                "<?= csrf_token(); ?>": token,
+            },
+            success: function(response) {
+
+                setTimeout(function() {
+                    console.log(response.data.status);
+
+                    //show success message
+                    toastr.success(response.message, 'BERHASIL!');
+                    var id = response.data.id;
+
+                    if (response.data.status == 1) {
+                        // $(`#lamp-${response.data.id}`).attr('src', `images/on.png`);
+                        $(`#lamp-` + id).attr('src', `<?= base_url(); ?>images/on.png`);
+                        $(`#headerlamp-` + id).removeClass('bg-danger').addClass(
+                            'bg-success');
+                        $(`#lampStatus-` + id).text('ON').addClass('text-success')
+                            .removeClass('text-danger');
+                        $(`.status-` + id).val(0);
+                    } else {
+                        $(`#lamp-` + id).attr('src', `<?= base_url(); ?>images/off.png`);
+                        $(`#headerlamp-` + id).removeClass('bg-success').addClass(
+                            'bg-danger');
+                        $(`#lampStatus-` + id).text('OFF').addClass('text-danger')
+                            .removeClass('text-success');
+                        $(`.status-` + id).val(1);
+                    }
+
+                    //hide loading
+                    $(`#loader-${payload.id}`).addClass('d-none');
+
+                }, 1000);
+            },
+            error: function() {
+                alert('Internal Server Error');
+            }
+        });
+    }
 </script>
 <?= $this->endSection('content') ?>
