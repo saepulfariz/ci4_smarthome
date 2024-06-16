@@ -17,4 +17,5 @@ $routes->group('api', function ($routes) {
     $routes->get('lamps', 'Api\LampController');
     $routes->get('lamps/(:any)', 'Api\LampController::updateLamp/$1');
     $routes->get('histories', 'Api\HistoryController::index');
+    $routes->get('status', 'Api\StatusController::index');
 });
