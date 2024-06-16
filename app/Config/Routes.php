@@ -14,5 +14,6 @@ $routes->get('/histories', 'HistoryController::index');
 // no filter, set Config/Filters.php
 // $routes->group('api', ['filter' => 'csrf'], function ($routes) {
 $routes->group('api', function ($routes) {
-    $routes->get('lamps', 'Api\LampsController');
+    $routes->get('lamps', 'Api\LampController');
+    $routes->get('lamps/(:any)', 'Api\LampController::updateLamp/$1');
 });

@@ -28,4 +28,4 @@ Tanpa belakang LampModel
 # php spark make:controller history --suffix
 
 Controller API
-# php spark make:controller Api/lamps --suffix
+# php spark make:controller Api/lamp --suffix
