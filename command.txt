@@ -1,0 +1,3 @@
+# composer create-project codeigniter4/appstarter:4.4.8 project-root
+# ubah "codeigniter4/framework": "^4.0" jadi "codeigniter4/framework": "4.4.8"
+# lalu composer update biar gak error php spark nya
