@@ -16,3 +16,6 @@ database.default.DBDriver = SQLite3
 
 # php spark make:seeder SeedLamps
 # php spark db:seed all
+
+# php spark make:model Lamp --suffix
+# php spark make:model history --suffix
