@@ -10,7 +10,7 @@
                         <h5 class="mb-0 text-uppercase"><?= $lamp['name']; ?></h5>
                     </div>
                     <div class="card-body text-center">
-                        <img src="<?= base_url(); ?><?= ($lamp['status'] == 1 ? 'images/on.png' : 'images/off.png'); ?>" class="mt-3" width="80" id="lamp-<?= $lamp['id']; ?>">
+                        <img src="<?= base_url('public/'); ?><?= ($lamp['status'] == 1 ? 'images/on.png' : 'images/off.png'); ?>" class="mt-3" width="80" id="lamp-<?= $lamp['id']; ?>">
                         <div class="mt-4">
                             <div class="form-check form-switch">
                                 <input onclick="updateLamp(this)" class="form-check-input status-<?= $lamp['id']; ?>" type="checkbox" role="switch" id="<?= $lamp['id']; ?>" <?= ($lamp['status'] == 1 ? 'checked' : 'bg-danger'); ?>>
@@ -63,14 +63,14 @@
 
                     if (response.data.status == 1) {
                         // $(`#lamp-${response.data.id}`).attr('src', `images/on.png`);
-                        $(`#lamp-` + id).attr('src', `<?= base_url(); ?>images/on.png`);
+                        $(`#lamp-` + id).attr('src', `<?= base_url(); ?>public/images/on.png`);
                         $(`#headerlamp-` + id).removeClass('bg-danger').addClass(
                             'bg-success');
                         $(`#lampStatus-` + id).text('ON').addClass('text-success')
                             .removeClass('text-danger');
                         $(`.status-` + id).val(0);
                     } else {
-                        $(`#lamp-` + id).attr('src', `<?= base_url(); ?>images/off.png`);
+                        $(`#lamp-` + id).attr('src', `<?= base_url(); ?>public/images/off.png`);
                         $(`#headerlamp-` + id).removeClass('bg-success').addClass(
                             'bg-danger');
                         $(`#lampStatus-` + id).text('OFF').addClass('text-danger')

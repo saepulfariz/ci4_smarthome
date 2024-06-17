@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Home System</title>
-    <link rel="icon" href="<?= base_url('images/smart-house.png'); ?>" type="image/x-icon">
+    <link rel="icon" href="<?= base_url('public/images/smart-house.png'); ?>" type="image/x-icon">
     <meta name="csrf-token" content="<?= csrf_hash(); ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="/">
-                <img src="<?= base_url('images/smart-house.png'); ?>" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
+                <img src="<?= base_url('public/images/smart-house.png'); ?>" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
                 SMART HOME
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
